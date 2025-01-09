@@ -28,7 +28,7 @@ class perceptron
 {
     public:
     const float learningRate = 0.01; 
-    float weight = 1; //initialise to a smaller random value instead of 1
+    float weight = 1; 
     //vector<float> weights;
     vector<float> inputVector;
     vector<float> actualData; 
@@ -39,7 +39,7 @@ class perceptron
     {
         inputVector = input; 
         actualData = actual; 
-        //weights.resize(inputVector.size(), 1); // Initialize weights with the same size as inputVector and set all the values randomly
+        //weights.resize(inputVector.size(), 1);
         bias = 0; 
     }
 
@@ -54,7 +54,7 @@ class perceptron
     float calcCostFunction(float predictedY, float actualY, float inputDataIndex)
     {
         float error = predictedY - actualY; 
-        float subSum = inputDataIndex*error; //the subSum is calculated wrong - it should be  error * inputVector[i] not actualY
+        float subSum = inputDataIndex*error; 
     
         float gradient = error*subSum; 
         return gradient;
@@ -71,7 +71,7 @@ class perceptron
             float val = learningRate*untreatedVal; 
             weight -= val/n; 
             float error = value - actualData[i];
-            bias -=  2*error*learningRate/n;  //bias term should also have learning rate
+            bias -=  2*error*learningRate/n;  
             
             cout<<i; 
             cout<<"\n weight: ";
